@@ -1,5 +1,4 @@
 import { View, Text, Image, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
 
 const win = Dimensions.get("window");
 const ratio = win.width / 541; //541 is actual image width
@@ -12,12 +11,11 @@ export function Explore({ navigation }: any) {
           source={{
             uri: "https://wallpapercave.com/wp/wp5744408.jpg",
           }}
-          resizeMode={"contain"}
+          resizeMode={"cover"}
           style={styles.img}
         />
         <TouchableOpacity onPress={() => navigation.navigate("home")}>
           <View style={styles.explore_now}>
-            <Icon name="long-arrow-right" size={30} color="#900" />
             <Text style={styles.explore_now__text}>explore now</Text>
           </View>
         </TouchableOpacity>
@@ -39,7 +37,7 @@ const styles = StyleSheet.create({
     resizeMode: "stretch",
   },
   explore_now: {
-    width: "90%",
+    width: "50%",
     position: "absolute",
     bottom: 100,
     right: 0,

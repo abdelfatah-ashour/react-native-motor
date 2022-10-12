@@ -1,7 +1,6 @@
-import { View, Text, Image, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
+import { View, Text, Image, StyleSheet, Dimensions, TouchableWithoutFeedback } from "react-native";
 
 const win = Dimensions.get("window");
-const ratio = win.width / 541; //541 is actual image width
 
 export function Explore({ navigation }: any) {
   return (
@@ -14,11 +13,11 @@ export function Explore({ navigation }: any) {
           resizeMode={"cover"}
           style={styles.img}
         />
-        <TouchableOpacity onPress={() => navigation.navigate("home")}>
+        <TouchableWithoutFeedback onPress={() => navigation.navigate("home")}>
           <View style={styles.explore_now}>
             <Text style={styles.explore_now__text}>explore now</Text>
           </View>
-        </TouchableOpacity>
+        </TouchableWithoutFeedback>
       </View>
     </>
   );

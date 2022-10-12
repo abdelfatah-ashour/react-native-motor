@@ -1,11 +1,11 @@
-import { SafeAreaView, StyleSheet, Text, View, ScrollView, Image } from "react-native";
+import { SafeAreaView, StyleSheet, Text, View, ScrollView, Image, TouchableWithoutFeedback } from "react-native";
 import React from "react";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Iionic from "react-native-vector-icons/Ionicons";
 import IAntDesign from "react-native-vector-icons/Ionicons";
 import { brands } from "../utilities/data/bands";
 
-const Home = () => {
+const Home = ({ navigation }: any) => {
   return (
     <SafeAreaView>
       <ScrollView>
@@ -92,46 +92,51 @@ const Home = () => {
             More
           </Text>
         </View>
-        <View style={styles.home_card}>
-          <View style={styles.home_card__image}>
-            <Image
-              source={{
-                uri: "https://images.unsplash.com/photo-1535448580089-c7f9490c78b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1021&q=80",
-              }}
+        <TouchableWithoutFeedback
+          onPress={() => {
+            navigation.navigate("/product/view");
+          }}>
+          <View style={styles.home_card}>
+            <View style={styles.home_card__image}>
+              <Image
+                source={{
+                  uri: "https://images.unsplash.com/photo-1535448580089-c7f9490c78b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1021&q=80",
+                }}
+                style={{
+                  width: "100%",
+                  height: 200,
+                  borderRadius: 10,
+                }}
+                resizeMethod="resize"
+                resizeMode={"cover"}
+              />
+            </View>
+            <View style={styles.home_card__heading}>
+              <Text style={styles.home_card__heading__text}>Lamborghini Car's</Text>
+              <IAntDesign
+                name="heart"
+                style={{
+                  fontSize: 30,
+                  color: "red",
+                }}
+              />
+            </View>
+            <View
               style={{
-                width: "100%",
-                height: 200,
-                borderRadius: 10,
-              }}
-              resizeMethod="resize"
-              resizeMode={"cover"}
-            />
-          </View>
-          <View style={styles.home_card__heading}>
-            <Text style={styles.home_card__heading__text}>Lamborghini Car's</Text>
-            <IAntDesign
-              name="heart"
-              style={{
-                fontSize: 30,
-                color: "red",
-              }}
-            />
-          </View>
-          <View
-            style={{
-              ...styles.home_card__Sub_heading,
-              paddingVertical: 6,
-            }}>
-            <Text style={styles.home_card__Sub_heading__text}>$255.000</Text>
-            <Text
-              style={{
-                ...styles.home_card__Sub_heading__text,
-                textAlign: "right",
+                ...styles.home_card__Sub_heading,
+                paddingVertical: 6,
               }}>
-              #Manual
-            </Text>
+              <Text style={styles.home_card__Sub_heading__text}>$255.000</Text>
+              <Text
+                style={{
+                  ...styles.home_card__Sub_heading__text,
+                  textAlign: "right",
+                }}>
+                #Manual
+              </Text>
+            </View>
           </View>
-        </View>
+        </TouchableWithoutFeedback>
       </ScrollView>
     </SafeAreaView>
   );
